@@ -8,7 +8,7 @@
     </head>
 
     <body>
-/*        <header class="mb-4">
+        <header class="mb-4">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 {{-- トップページへのリンク --}}
                 <a class="navbar-brand" href="/">tasklist</a>
@@ -26,9 +26,6 @@
                 </div>
             </nav>
         </header>
-*/
-        {{-- ナビゲーションバー --}}
-        @include('commons.navbar')
 
         <div class="container">
             @yield('content')
