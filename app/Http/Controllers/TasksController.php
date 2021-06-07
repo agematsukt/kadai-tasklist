@@ -34,9 +34,16 @@ class TasksController extends Controller
     // postでmessages/にアクセスされた場合の「新規登録処理」
     public function store(Request $request)
     {
+        // バリデーション
+        $request->validate([
+            'status' => 'required|max:10',   // 追加
+            'content' => 'required',
+        ]);
+
         // メッセージを作成
         $task = new Task;
         $task->content = $request->content;
+        $task->status = $request->status;    // 追加
         $task->save();
 
         // トップページへリダイレクトさせる
@@ -70,6 +77,12 @@ class TasksController extends Controller
     // putまたはpatchでmessages/（任意のid）にアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'status' => 'required|max:10',   // 追加
+            'content' => 'required',
+        ]);
+
         // idの値でメッセージを検索して取得
         $task = Task::findOrFail($id);
         // メッセージを更新
