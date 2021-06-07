@@ -2,8 +2,9 @@
 
 @section('content')
 
-    <h1>タスク新規作成ページ</h1>
+    <h1>メッセージ新規作成ページ</h1>
 
+    {!! Form::model(task, ['route' => 'messages.store']) !!}
     <div class="row">
         <div class="col-6">
             {!! Form::model($task, ['route' => 'tasks.store']) !!}
